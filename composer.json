@@ -21,7 +21,8 @@
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
         "phpstan/phpstan": "^2.1",
-        "phpunit/phpunit": "^11.5.3"
+        "phpunit/phpunit": "^11.5.3",
+        "squizlabs/php_codesniffer": "^3.11"
     },
     "autoload": {
         "psr-4": {
@@ -51,6 +52,11 @@
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
         ],
+        "lint": "phpcs app/ routes/",
+        "lint:fix": "phpcbf app/ routes/",
+        "analyse": "phpstan analyse",
+        "swagger:generate": "php artisan l5-swagger:generate",
+        "test": "php artisan test",
         "dev": [
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
