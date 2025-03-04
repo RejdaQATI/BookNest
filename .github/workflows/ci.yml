@@ -44,9 +44,11 @@ jobs:
         php artisan view:cache
 
     - name: Upload Laravel build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: application-build
         path: |
           bootstrap/cache
           storage/framework
+          storage/logs
+          public
