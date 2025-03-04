@@ -10,9 +10,6 @@ class AuthorControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * Test l'affichage de tous les auteurs.
-     */
     public function testListAllAuthors()
     {
         Author::factory()->count(3)->create();
@@ -34,9 +31,6 @@ class AuthorControllerTest extends TestCase
                  ]);
     }
 
-    /**
-     * Test l'affichage d'un auteur spécifique.
-     */
     public function testShowSingleAuthor()
     {
         $author = Author::factory()->create();
@@ -54,9 +48,6 @@ class AuthorControllerTest extends TestCase
                  ]);
     }
 
-    /**
-     * Test la tentative d'affichage d'un auteur inexistant.
-     */
     public function testShowNonExistingAuthor()
     {
         $response = $this->getJson('/api/authors/9999');
@@ -68,9 +59,6 @@ class AuthorControllerTest extends TestCase
                  ]);
     }
 
-    /**
-     * Test l'ajout d'un nouvel auteur.
-     */
     public function testCreateNewAuthor()
     {
         $data = [
@@ -92,9 +80,6 @@ class AuthorControllerTest extends TestCase
         $this->assertDatabaseHas('authors', $data);
     }
 
-    /**
-     * Test l'ajout d'un auteur sans nom.
-     */
     public function testCreateAuthorWithoutName()
     {
         $response = $this->postJson('/api/authors', ['bio' => 'An unknown author']);
@@ -103,9 +88,6 @@ class AuthorControllerTest extends TestCase
                  ->assertJsonValidationErrors(['name']);
     }
 
-    /**
-     * Test la mise à jour d'un auteur.
-     */
     public function testUpdateAuthor()
     {
         $author = Author::factory()->create();
@@ -126,9 +108,6 @@ class AuthorControllerTest extends TestCase
         $this->assertDatabaseHas('authors', $data);
     }
 
-    /**
-     * Test la mise à jour d'un auteur inexistant.
-     */
     public function testUpdateNonExistingAuthor()
     {
         $data = [
@@ -145,9 +124,6 @@ class AuthorControllerTest extends TestCase
                  ]);
     }
 
-    /**
-     * Test la suppression d'un auteur.
-     */
     public function testDeleteAuthor()
     {
         $author = Author::factory()->create();
@@ -163,9 +139,6 @@ class AuthorControllerTest extends TestCase
         $this->assertDatabaseMissing('authors', ['id' => $author->id]);
     }
 
-    /**
-     * Test la suppression d'un auteur inexistant.
-     */
     public function testDeleteNonExistingAuthor()
     {
         $response = $this->deleteJson('/api/authors/9999');
