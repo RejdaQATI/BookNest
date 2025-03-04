@@ -52,8 +52,8 @@
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
         ],
-        "lint": "phpcs app/ routes/",
-        "lint:fix": "phpcbf app/ routes/",
+        "lint": "phpcs --standard=.phpcs.xml",
+        "lint:fix": "phpcbf --standard=.phpcs.xml",
         "analyse": "phpstan analyse",
         "swagger:generate": "php artisan l5-swagger:generate",
         "test": "php artisan test",

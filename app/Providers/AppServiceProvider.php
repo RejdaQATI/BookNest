@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Service provider principal de l'application.
+ *
+ * @category Providers
+ * @package  App\Providers
+ */
+
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -7,17 +14,21 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Enregistre les services de l'application.
+     *
+     * @return void
      */
-    public function register(): void
+    public function register()
     {
         //
     }
 
     /**
-     * Bootstrap any application services.
+     * Exécute les services après l'enregistrement.
+     *
+     * @return void
      */
-    public function boot(): void
+    public function boot()
     {
         //
     }

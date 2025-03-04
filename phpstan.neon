@@ -1,7 +1,9 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
 parameters:
-    level: 5
+    level: 5  # Adjust the level as needed (0-9)
     paths:
         - app
-        - routes
-    excludePaths:
-        - tests
+    bootstrapFiles:
+        - ./vendor/autoload.php

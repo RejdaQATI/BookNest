@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Fichier de routes API
+ *
+ * Définit les routes de l'API pour l'application.
+ *
+ * @category Routes
+ * @package  App\Routes
+ */
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
