@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  *     required={"title", "author", "category_id"},
  *     @OA\Property(property="id", type="integer", example=1),
  *     @OA\Property(property="title", type="string", example="The Great Gatsby"),
- *     @OA\Property(property="author", type="string", example="F. Scott Fitzgerald"),
+ *     @OA\Property(property="author_ids", type="array", @OA\Items(type="integer"), example={1}),
  *     @OA\Property(property="year", type="integer", example=1925),
  *     @OA\Property(property="category_id", type="integer", example=2),
  *     @OA\Property(property="description", type="string", example="A novel about the American dream."),
