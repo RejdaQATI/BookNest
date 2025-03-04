@@ -64,3 +64,20 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## About Swagger
+
+1. Generate documentation
+```bash
+php artisan l5-swagger:generate
+```
+
+2. Start the server
+```bash
+php artisan serve
+```
+
+3. Test endpoint with SwaggerUI
+```bash
+http://localhost:8000/api/documentation
+```
