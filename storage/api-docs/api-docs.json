@@ -159,6 +159,35 @@
     },
     "components": {
         "schemas": {
+            "Author": {
+                "title": "Author",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "George Orwell"
+                    },
+                    "bio": {
+                        "type": "string",
+                        "example": "English novelist and essayist"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
             "Book": {
                 "title": "Book",
                 "required": [
@@ -176,8 +205,8 @@
                         "example": "The Great Gatsby"
                     },
                     "author": {
-                        "type": "string",
-                        "example": "F. Scott Fitzgerald"
+                        "type": "aray",
+                        "example": "[1]"
                     },
                     "year": {
                         "type": "integer",
@@ -194,6 +223,35 @@
                     "available": {
                         "type": "boolean",
                         "example": true
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "Category": {
+                "title": "Category",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Fiction"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Fictional books category"
                     },
                     "created_at": {
                         "type": "string",
