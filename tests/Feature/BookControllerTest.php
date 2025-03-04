@@ -29,7 +29,7 @@ class BookControllerTest extends TestCase
 
   public function test_can_show_a_book()
   {
-  
+
     $book = Book::factory()->create();
     $category = Category::factory()->create();
     $authors = Author::factory(2)->create();
