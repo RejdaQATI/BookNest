@@ -19,11 +19,11 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-interaction
 
-    - name: Run linting
-      run: composer lint
-
     - name: Run linting fix (optional)
       run: composer lint:fix
+      
+    - name: Run linting
+      run: composer lint
 
     - name: Run static analysis
       run: composer analyse
