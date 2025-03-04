@@ -44,7 +44,7 @@ jobs:
         php artisan view:cache
 
     - name: Upload Laravel build artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: application-build
         path: |
