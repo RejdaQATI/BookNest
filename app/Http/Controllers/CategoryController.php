@@ -48,11 +48,11 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
-        
+
         if (!$category) {
             return response()->json(['success' => false, 'message' => 'Catégorie non trouvée'], 404);
         }
-        
+
         return response()->json(['success' => true, 'category' => $category], 200);
     }
 
@@ -107,18 +107,18 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $category = Category::find($id);
-        
+
         if (!$category) {
             return response()->json(['success' => false, 'message' => 'Catégorie non trouvée'], 404);
         }
-        
+
         $request->validate([
             'name' => 'sometimes|string|max:100',
             'description' => 'nullable|string'
         ]);
-        
+
         $category->update($request->only(['name', 'description']));
-        
+
         return response()->json(['success' => true, 'category' => $category], 200);
     }
 
@@ -140,13 +140,13 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        
+
         if (!$category) {
             return response()->json(['success' => false, 'message' => 'Catégorie non trouvée'], 404);
         }
-        
+
         $category->delete();
-        
+
         return response()->json(['success' => true, 'message' => 'Catégorie supprimée avec succès'], 200);
     }
 }
