@@ -7,9 +7,7 @@ use App\Models\Author;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-/**
- * @OA\Info(title="BookNest API", version="1.0")
- */
+
 class BookController extends Controller
 {
     /**
