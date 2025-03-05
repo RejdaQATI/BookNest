@@ -7,7 +7,6 @@ use App\Models\Author;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-
 class BookController extends Controller
 {
     /**
@@ -30,7 +29,8 @@ class BookController extends Controller
             [
             'success' => true,
             'books' => $books
-            ], 200
+            ],
+            200
         );
     }
 
@@ -57,21 +57,23 @@ class BookController extends Controller
     public function show($id)
     {
         $book = Book::with(['authors', 'category'])->find($id);
-        
+
         if (!$book) {
             return response()->json(
                 [
                 'success' => false,
                 'message' => 'Livre non trouvé'
-                ], 404
+                ],
+                404
             );
         }
-        
+
         return response()->json(
             [
             'success' => true,
             'book' => $book
-            ], 200
+            ],
+            200
         );
     }
 
@@ -120,7 +122,8 @@ class BookController extends Controller
             [
             'success' => true,
             'book' => $book->load('authors', 'category')
-            ], 201
+            ],
+            201
         );
     }
 
@@ -152,7 +155,8 @@ class BookController extends Controller
                 [
                 'success' => false,
                 'message' => 'Livre non trouvé'
-                ], 404
+                ],
+                404
             );
         }
 
@@ -175,8 +179,9 @@ class BookController extends Controller
         return response()->json(
             [
             'success' => true,
-            'book' => $book->load('authors', 'category')
-            ], 200
+            'book' => $book->load(['authors', 'category'])
+            ],
+            200
         );
     }
 
@@ -198,13 +203,14 @@ class BookController extends Controller
     public function destroy($id)
     {
         $book = Book::find($id);
-        
+
         if (!$book) {
             return response()->json(
                 [
                 'success' => false,
                 'message' => 'Livre non trouvé'
-                ], 404
+                ],
+                404
             );
         }
         $book->authors()->detach();
@@ -214,7 +220,8 @@ class BookController extends Controller
             [
             'success' => true,
             'message' => 'Livre supprimé avec succès'
-            ], 200
+            ],
+            200
         );
     }
 }

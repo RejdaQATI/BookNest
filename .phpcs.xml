@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<ruleset name="BookNest Coding Standards">
+    <description>Custom PHP CodeSniffer Ruleset for BookNest</description>
+
+    <!-- Inclure les standards PSR12 -->
+    <rule ref="PSR12"/>
+
+    <!-- Définir le répertoire de code à analyser -->
+    <file>app</file>
+    <file>routes</file>
+
+    <!-- Personnaliser les règles -->
+    <config name="minimum_php_version" value="8.2"/>
+
+    <!-- Ignorer les erreurs spécifiques -->
+    <exclude name="Generic.Commenting.DocComment.MissingShort"/>
+    <exclude name="Generic.Commenting.DocComment.MissingPackageTag"/>
+
+    <!-- Ajouter des tags optionnels pour éviter les erreurs -->
+    <rule ref="Generic.Commenting.DocComment.TagGroup">
+        <properties>
+            <property name="annotations" type="array" value="author,link"/>
+        </properties>
+    </rule>
+
+    <!-- Longueur maximale des lignes (ajuster si nécessaire) -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="150"/>
+        </properties>
+    </rule>
+
+    <!-- Ignorer les fichiers spécifiques si nécessaire -->
+    <exclude-pattern>vendor/*</exclude-pattern>
+</ruleset>

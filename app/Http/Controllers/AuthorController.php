@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param Request $request
+ * @property string $title
+ * @property int $year
+ */
+
 namespace App\Http\Controllers;
 
 use App\Models\Author;
@@ -12,10 +18,10 @@ class AuthorController extends Controller
      *     path="/api/authors",
      *     summary="List all authors",
      *     tags={"Authors"},
-     *     @OA\Response(
+     * @OA\Response(
      *         response=200,
      *         description="A list of authors",
-     *         @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Author"))
+     * @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Author"))
      *     )
      * )
      */
@@ -30,19 +36,19 @@ class AuthorController extends Controller
      *     path="/api/authors/{id}",
      *     summary="Get a single author",
      *     tags={"Authors"},
-     *     @OA\Parameter(
+     * @OA\Parameter(
      *         name="id",
      *         in="path",
      *         required=true,
      *         description="ID of the author",
-     *         @OA\Schema(type="integer")
+     * @OA\Schema(type="integer")
      *     ),
-     *     @OA\Response(
+     * @OA\Response(
      *         response=200,
      *         description="Author details",
-     *         @OA\JsonContent(ref="#/components/schemas/Author")
+     * @OA\JsonContent(ref="#/components/schemas/Author")
      *     ),
-     *     @OA\Response(response=404, description="Author not found")
+     * @OA\Response(response=404,                         description="Author not found")
      * )
      */
     public function show($id)
@@ -59,16 +65,16 @@ class AuthorController extends Controller
      *     path="/api/authors",
      *     summary="Add a new author",
      *     tags={"Authors"},
-     *     @OA\RequestBody(
+     * @OA\RequestBody(
      *         required=true,
-     *         @OA\JsonContent(ref="#/components/schemas/Author")
+     * @OA\JsonContent(ref="#/components/schemas/Author")
      *     ),
-     *     @OA\Response(
+     * @OA\Response(
      *         response=201,
      *         description="Author created successfully",
-     *         @OA\JsonContent(ref="#/components/schemas/Author")
+     * @OA\JsonContent(ref="#/components/schemas/Author")
      *     ),
-     *     @OA\Response(response=400, description="Validation error")
+     * @OA\Response(response=400,                         description="Validation error")
      * )
      */
     public function store(Request $request)
@@ -85,18 +91,18 @@ class AuthorController extends Controller
      *     path="/api/authors/{id}",
      *     summary="Update an author",
      *     tags={"Authors"},
-     *     @OA\Parameter(
+     * @OA\Parameter(
      *         name="id",
      *         in="path",
      *         required=true,
-     *         @OA\Schema(type="integer")
+     * @OA\Schema(type="integer")
      *     ),
-     *     @OA\RequestBody(
+     * @OA\RequestBody(
      *         required=true,
-     *         @OA\JsonContent(ref="#/components/schemas/Author")
+     * @OA\JsonContent(ref="#/components/schemas/Author")
      *     ),
-     *     @OA\Response(response=200, description="Author updated successfully"),
-     *     @OA\Response(response=404, description="Author not found")
+     * @OA\Response(response=200,                         description="Author updated successfully"),
+     * @OA\Response(response=404,                         description="Author not found")
      * )
      */
     public function update(Request $request, $id)
@@ -117,14 +123,14 @@ class AuthorController extends Controller
      *     path="/api/authors/{id}",
      *     summary="Delete an author",
      *     tags={"Authors"},
-     *     @OA\Parameter(
+     * @OA\Parameter(
      *         name="id",
      *         in="path",
      *         required=true,
-     *         @OA\Schema(type="integer")
+     * @OA\Schema(type="integer")
      *     ),
-     *     @OA\Response(response=200, description="Author deleted successfully"),
-     *     @OA\Response(response=404, description="Author not found")
+     * @OA\Response(response=200, description="Author deleted successfully"),
+     * @OA\Response(response=404, description="Author not found")
      * )
      */
     public function destroy($id)

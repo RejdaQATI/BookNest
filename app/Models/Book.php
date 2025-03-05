@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany; 
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 /**
  * @OA\Schema(
  *     schema="Book",
@@ -24,12 +27,22 @@ class Book extends Model
 {
     protected $fillable = ['title', 'author_id', 'category_id', 'year', 'description'];
 
+    /**
+     * Get the authors for the book.
+     *
+     * @return BelongsToMany
+     */
     public function authors(): BelongsToMany
     {
         return $this->belongsToMany(Author::class, 'author_book');
-    }    
+    }
 
-    public function category()
+    /**
+     * Get the category that owns the book.
+     *
+     * @return BelongsTo
+     */
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }

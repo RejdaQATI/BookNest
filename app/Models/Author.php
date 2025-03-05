@@ -12,11 +12,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  *     type="object",
  *     title="Author",
  *     required={"name"},
- *     @OA\Property(property="id",         type="integer", example=1),
- *     @OA\Property(property="name",       type="string", example="George Orwell"),
- *     @OA\Property(property="bio",        type="string", example="English novelist and essayist"),
- *     @OA\Property(property="created_at", type="string", format="date-time"),
- *     @OA\Property(property="updated_at", type="string", format="date-time")
+ * @OA\Property(property="id",         type="integer", example=1),
+ * @OA\Property(property="name",       type="string", example="George Orwell"),
+ * @OA\Property(property="bio",        type="string", example="English novelist and essayist"),
+ * @OA\Property(property="created_at", type="string", format="date-time"),
+ * @OA\Property(property="updated_at", type="string", format="date-time")
  * )
  */
 class Author extends Model
