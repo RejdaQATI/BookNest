@@ -24,9 +24,6 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-interaction
 
-    - name: Generate Laravel application key
-      run: php artisan key:generate --env=testing
-
     - name: Run linting
       run: composer lint
 
