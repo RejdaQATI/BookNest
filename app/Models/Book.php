@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -25,23 +26,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  */
 class Book extends Model
 {
-    protected $fillable = ['title', 'author_id', 'category_id', 'year', 'description'];
+    use HasFactory; // Assurez-vous que cette ligne est présente !
 
-    /**
-     * Get the authors for the book.
-     *
-     * @return BelongsToMany
-     */
+    protected $fillable = ['title', 'category_id', 'year', 'description'];
+
     public function authors(): BelongsToMany
     {
         return $this->belongsToMany(Author::class, 'author_book');
     }
 
-    /**
-     * Get the category that owns the book.
-     *
-     * @return BelongsTo
-     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
